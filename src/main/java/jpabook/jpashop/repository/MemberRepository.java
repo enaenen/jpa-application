@@ -2,9 +2,12 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
@@ -25,7 +28,7 @@ public class MemberRepository {
         return em.createQuery("SELECT m FROM Member m", Member.class).getResultList();
     }
     public List<Member> findByName(String name){
-        return em.createQuery("SELECT m FROM Member m WHERE m.name= :name", Member.class)
+        return em.createQuery("SELECT m FROM Member m WHERE m.username= :name", Member.class)
                 .setParameter("name",name)
                 .getResultList();
     }
