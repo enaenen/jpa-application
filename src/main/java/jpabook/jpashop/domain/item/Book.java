@@ -17,9 +17,10 @@ public class Book extends Item{
 
     public static Book createBook(BookForm bookForm){
         Book book = new Book();
+        book.setId(bookForm.getId());
         book.isbn=bookForm.getIsbn();
         book.author=bookForm.getAuthor();
-        book.setStockQuantity(book.getStockQuantity());
+        book.setStockQuantity(bookForm.getStockQuantity());
         book.setPrice(bookForm.getPrice());
         book.setName(bookForm.getName());
         return book;
