@@ -27,7 +27,7 @@ public class MemberService {
     }
 //Unique 제약조건을 걸어서 한번 더 확인한다. 이 메소드 만으로는 멀티 쓰레드 환경에서 안전하지 않다.
     private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getUsername());
+        List<Member> findMembers = memberRepository.findByName(member.getName());
         if(!findMembers.isEmpty())
             throw new IllegalStateException("이미 존재하는 회원입니다.");
     }

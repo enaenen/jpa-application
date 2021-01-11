@@ -32,7 +32,7 @@ public class MemberController {
         //MemberForm 안에서 Adderess를 필드로 넣고 푸는 방법도 있을것
         Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
         Member member = new Member();
-        member.setUsername(form.getName());
+        member.setName(form.getName());
         member.setAddress(address);
 
         memberService.join(member);
