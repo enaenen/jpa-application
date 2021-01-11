@@ -1,10 +1,10 @@
 package jpabook.jpashop.domain.item;
 
 import jpabook.jpashop.controller.BookForm;
+import jpabook.jpashop.dto.UpdateItemDto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -24,5 +24,10 @@ public class Book extends Item{
         book.setPrice(bookForm.getPrice());
         book.setName(bookForm.getName());
         return book;
+    }
+    public void updateItem(UpdateItemDto bookUpdate){
+        this.isbn=bookUpdate.getIsbn();
+        this.author=bookUpdate.getAuthor();
+        this.updateItem(bookUpdate.getName(),bookUpdate.getPrice(),bookUpdate.getStockQuantity());
     }
 }
