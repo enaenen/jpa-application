@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
 #      show_sql: true #Sout을 통해 출력 (logging은 log를 통해 출력)
