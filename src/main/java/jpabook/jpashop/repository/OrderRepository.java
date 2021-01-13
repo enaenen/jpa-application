@@ -2,6 +2,7 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -49,4 +50,13 @@ public class OrderRepository {
         //최대1000건
         return query.getResultList();
     }
+
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "SELECT o FROM Order o " +
+                        "JOIN FETCH o.member " +
+                        "JOIN FETCH o.delivery d", Order.class)
+                .getResultList();
+    }
+
 }
